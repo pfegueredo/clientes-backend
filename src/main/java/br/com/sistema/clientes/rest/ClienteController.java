@@ -1,6 +1,7 @@
 package br.com.sistema.clientes.rest;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.sistema.clientes.modelo.entity.Cliente;
 import br.com.sistema.clientes.modelo.repository.ClienteRepository;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -39,10 +40,10 @@ public class ClienteController {
 
 	@GetMapping("{id}")
 	public Cliente acharPorId(@PathVariable Integer id) {
-		String Nome = "Paulo Fegueredo";
-		String Endereco = "Rua Rio Jaguaribe, ";
-		int numero = 389;
-		System.out.printf("%s\n%-25s%d\n%s\n%s",Nome, Endereco, numero, "CEP 82840-330", "Curitiba/PR");
+//		String Nome = "Paulo Fegueredo";
+//		String Endereco = "Rua Rio Jaguaribe, ";
+//		int numero = 389;
+//		System.out.printf("%s\n%-25s%d\n%s\n%s",Nome, Endereco, numero, "CEP 82840-330", "Curitiba/PR");
 		return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 
@@ -50,7 +51,7 @@ public class ClienteController {
 	public List<Cliente> listarClientes() {
 		//List<Cliente> clientes = ;repository.findAll()
 		return repository.findAll();
-		
+
 	}
 
 	@DeleteMapping("{id}")

@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.sistema.clientes.modelo.entity.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+import java.util.Optional;
 
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+    Optional<Usuario> findByUsername(String username);
+
+    boolean existsByUsername(String username);
 }

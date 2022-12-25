@@ -9,13 +9,12 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  * Arquivo de configuração para segurança com Oauth2
  * Resources são as nossas APIs.
  * Os usuários são dividos em Roles.
- */ 
+ */
 
 
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-	
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http
@@ -23,9 +22,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 				.antMatchers("/api/usuarios").permitAll()
 				.antMatchers("/api/clientes/**", "/api/servicos-prestados").authenticated()
 				.anyRequest().denyAll();
-		;
+
 				//.antMatchers("/api/clientes/**").hasAnyRole("USER", "ADMIN")
-				
+
 	}
 
 }

@@ -13,7 +13,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 public class InternacionalizacaoConfig {
 
 	// Criar classe de configuração de internacionalização com MessageSource
-	
+
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
@@ -22,7 +22,7 @@ public class InternacionalizacaoConfig {
 		messageSource.setDefaultLocale( Locale.getDefault() ); //Define o local baseado no S.O
 		return messageSource;
 	}
-	
+
 	// Para integrar o arquivo de internacionalização com o Bean validator nas entidades
 	@Bean
 	public LocalValidatorFactoryBean validatorFactoryBean() {
@@ -30,5 +30,5 @@ public class InternacionalizacaoConfig {
 		bean.setValidationMessageSource(messageSource());
 		return bean;
 	}
-	
+
 }
